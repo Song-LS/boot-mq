@@ -1,0 +1,30 @@
+package com.sls.test;
+
+import com.sls.BootMqApplication;
+import com.sls.mq.FanoutSender;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * @author sls
+ **/
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = BootMqApplication.class)
+public class FanoutTest {
+
+    @Autowired
+    private FanoutSender fanoutSender;
+
+    @Test
+    public void Test() {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        fanoutSender.send("time1==>" + sf.format(new Date()));
+        fanoutSender.send2("Date==>" + sf.format(new Date()));
+    }
+}
