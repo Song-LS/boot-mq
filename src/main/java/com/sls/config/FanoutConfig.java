@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FanoutConfig {
 
-    final static String QUEUE_NAME = "fanount";
-    final static String QUEUE_NAME2 = "fanount2";
+    final static String QUEUE_NAME = "fanout";
+    final static String QUEUE_NAME2 = "fanout2";
     final static String EXCHANGE_NAME = "myfanout";
 
     @Bean
