@@ -1,7 +1,7 @@
-package com.sls.test;
+package com.sls.mq_one.test;
 
 import com.sls.BootMqApplication;
-import com.sls.mq.Sender;
+import com.sls.mq_one.mq.FanoutSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,18 @@ import java.util.Date;
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootMqApplication.class)
-public class MQTest {
+public class FanoutTest {
 
     @Autowired
-    private Sender sender;
+    private FanoutSender fanoutSender;
 
+    /**
+     * Fanout下路由键无效（绑定的队列无效），都能消费这两个消息
+     */
     @Test
-    public void driectTest() {
-        SimpleDateFormat sf = new SimpleDateFormat();
-        sender.directSend("Driect Data:" + sf.format(new Date()));
+    public void Test() {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        fanoutSender.send("time1==>" + sf.format(new Date()));
+        fanoutSender.send2("Date==>" + sf.format(new Date()));
     }
 }

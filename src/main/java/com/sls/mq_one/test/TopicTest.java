@@ -1,7 +1,7 @@
-package com.sls.test;
+package com.sls.mq_one.test;
 
 import com.sls.BootMqApplication;
-import com.sls.mq.FanoutSender;
+import com.sls.mq_one.mq.TopicSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +16,14 @@ import java.util.Date;
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootMqApplication.class)
-public class FanoutTest {
+public class TopicTest {
 
     @Autowired
-    private FanoutSender fanoutSender;
+    private TopicSender topicSender;
 
-    /**
-     * Fanout下路由键无效（绑定的队列无效），都能消费这两个消息
-     */
     @Test
     public void Test() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-        fanoutSender.send("time1==>" + sf.format(new Date()));
-        fanoutSender.send2("Date==>" + sf.format(new Date()));
+        topicSender.topicSender("time==>" + sf.format(new Date()));
     }
 }

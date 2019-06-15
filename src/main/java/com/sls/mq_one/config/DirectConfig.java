@@ -1,4 +1,4 @@
-package com.sls.config;
+package com.sls.mq_one.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

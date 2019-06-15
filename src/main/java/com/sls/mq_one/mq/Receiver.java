@@ -1,4 +1,4 @@
-package com.sls.mq;
+package com.sls.mq_one.mq;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;

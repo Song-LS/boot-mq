@@ -1,7 +1,7 @@
-package com.sls.test;
+package com.sls.mq_one.test;
 
 import com.sls.BootMqApplication;
-import com.sls.mq.TopicSender;
+import com.sls.mq_one.mq.Sender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,14 @@ import java.util.Date;
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootMqApplication.class)
-public class TopicTest {
+public class MQTest {
 
     @Autowired
-    private TopicSender topicSender;
+    private Sender sender;
 
     @Test
-    public void Test() {
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
-        topicSender.topicSender("time==>" + sf.format(new Date()));
+    public void driectTest() {
+        SimpleDateFormat sf = new SimpleDateFormat();
+        sender.directSend("Driect Data:" + sf.format(new Date()));
     }
 }
