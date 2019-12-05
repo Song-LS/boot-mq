@@ -54,6 +54,6 @@ public class ConfirmProducer {
                 .build();
         rabbitTemplate.setConfirmCallback(confirmCallback);
         rabbitTemplate.setReturnCallback(returnCallback);
-        rabbitTemplate.convertAndSend("exchange-2", "confirm.message2", message1, correlationData);
+        rabbitTemplate.convertAndSend("exchange-2", "confirm.message", message1, correlationData);
     }
 }
