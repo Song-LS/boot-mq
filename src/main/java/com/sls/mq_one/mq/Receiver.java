@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- *消息接收者-消费消息
- *@author sls
+ * 消息接收者-消费消息
+ *
+ * @author sls
  **/
 @Component
 @RabbitListener(queues = "direct")
@@ -19,6 +20,7 @@ public class Receiver {
 
     /**
      * 监听消费消息
+     *
      * @param message
      */
     @RabbitHandler

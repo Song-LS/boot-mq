@@ -29,17 +29,18 @@ public class ConfirmProducer {
      */
     private final RabbitTemplate.ConfirmCallback confirmCallback = (correlationData, ack, cause) -> {
         if (!ack) {
-           log.error("消息发送失败：correlationData：{},cause: {}", correlationData, cause);
+            log.error("消息发送失败：correlationData：{},cause: {}", correlationData, cause);
         } else {
-            log.error("消息发送成功：correlationData：{},cause: {}", correlationData, cause);
+            log.info("消息发送成功：correlationData：{},ack: {}", correlationData, ack);
         }
     };
 
     private final RabbitTemplate.ReturnCallback returnCallback = (message, replyCode, replyText, exchange, routeKey) ->
-        log.error("消息丢失: exchange: {},routeKey: {},replyCode: {},replyText: {}", exchange, routeKey, replyCode, replyText);
+            log.error("消息丢失: exchange: {},routeKey: {},replyCode: {},replyText: {}", exchange, routeKey, replyCode, replyText);
 
     /**
      * 发送消息
+     *
      * @param message 消息内容
      */
     public void send(String message) {

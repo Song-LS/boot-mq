@@ -15,6 +15,7 @@ public class ConfirmConfiguration {
 
     /**
      * 声明 confirm.message 队列
+     *
      * @return
      */
     @Bean

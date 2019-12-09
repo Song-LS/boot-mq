@@ -7,9 +7,8 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 /**
- *@author sls
+ * @author sls
  **/
 @Configuration
 public class DirectConfig {
@@ -27,7 +26,7 @@ public class DirectConfig {
     @Bean
     DirectExchange directExchange() {
         // 参数1： 交换器名称， 参数2：是否持久化， 参数3：是否自动删除消息
-        return new DirectExchange(DirectConfig.EXCHANGE_NAME, false,false);
+        return new DirectExchange(DirectConfig.EXCHANGE_NAME, false, false);
     }
 
     // 绑定“direct” 队列到上面配置的“mydirect”路由器

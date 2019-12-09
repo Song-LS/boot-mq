@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 消息发送者-生产消息
+ *
  * @author sls
  **/
 @Component

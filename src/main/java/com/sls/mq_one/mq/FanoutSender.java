@@ -17,6 +17,7 @@ public class FanoutSender {
         System.out.println("发送消息：" + message);
         this.amqpTemplate.convertAndSend("myfanout", "fanout", message);
     }
+
     public void send2(String message) {
         System.out.println("发送消息2：" + message);
         this.amqpTemplate.convertAndSend("myfanout", "fanout2", message);
